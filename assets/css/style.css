@@ -1,0 +1,228 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
+
+body {
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+h2 {
+  color: #3730a3;
+  font-weight: 600;
+  margin-top: 2.5em;
+  margin-bottom: 1.2em;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 400px;
+}
+
+h2 a {
+  color: #6366f1;
+  text-decoration: none;
+  font-size: 0.9em;
+  margin-left: 1em;
+  transition: color 0.2s;
+}
+h2 a:hover {
+  color: #3730a3;
+}
+
+form {
+  display: flex;
+  width: 400px;
+  margin-bottom: 1.5em;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.07);
+  padding: 0.7em 1em;
+  gap: 0.7em;
+}
+
+input[name="description"] {
+  flex: 1;
+  padding: 0.7em 1em;
+  border: none;
+  border-radius: 8px;
+  background: #f1f5f9;
+  font-size: 1em;
+  outline: none;
+  transition: background 0.2s;
+}
+input[name="description"]:focus {
+  background: #e0e7ff;
+}
+
+button {
+  background: linear-gradient(90deg, #6366f1 0%, #818cf8 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7em 1.2em;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.1);
+  transition: background 0.2s, transform 0.1s;
+}
+button:hover {
+  background: linear-gradient(90deg, #3730a3 0%, #6366f1 100%);
+  transform: translateY(-2px) scale(1.04);
+}
+
+#task-list {
+  width: 400px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+#task-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em 1.2em;
+  margin-bottom: 0.7em;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.07);
+  border: none;
+  opacity: 1;
+  transform: translateY(0);
+  transition: box-shadow 0.2s, background 0.2s, opacity 0.4s, transform 0.4s;
+  animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#task-list li.done {
+  background: #f1f5f9;
+  opacity: 0.7;
+}
+#task-list li.done span {
+  text-decoration: line-through;
+  color: #a1a1aa;
+}
+
+#task-list li span {
+  flex: 1;
+  font-size: 1.08em;
+  color: #3730a3;
+  transition: color 0.2s;
+}
+
+#task-list li a {
+  margin-left: 1em;
+  color: #6366f1;
+  text-decoration: none;
+  font-size: 0.95em;
+  font-weight: 500;
+  border-radius: 6px;
+  padding: 0.2em 0.7em;
+  transition: background 0.2s, color 0.2s;
+}
+#task-list li a:hover {
+  background: #e0e7ff;
+  color: #3730a3;
+}
+
+#task-list li:hover {
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.13);
+  background: #f8fafc;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation for removing tasks (handled by JS) */
+#task-list li.removing {
+  opacity: 0;
+  transform: translateX(40px) scale(0.95);
+  transition: opacity 0.4s, transform 0.4s;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: #e0e7ff;
+}
+::-webkit-scrollbar-thumb {
+  background: #6366f1;
+  border-radius: 8px;
+}
+
+/* Custom card for login/register */
+.login-card,
+.register-card {
+  max-width: 370px;
+  margin: 5em auto 0 auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 6px 32px rgba(99, 102, 241, 0.13);
+  padding: 2.5em 2em 2em 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-card .todo-header,
+.register-card .todo-header {
+  margin-top: 0;
+  margin-bottom: 1.2em;
+  font-size: 1.6em;
+}
+
+.login-card .todo-form,
+.register-card .todo-form {
+  width: 100%;
+  flex-direction: column;
+  gap: 1em;
+  box-shadow: none;
+  padding: 0;
+  background: none;
+  border-radius: 0;
+  margin-bottom: 1.2em;
+}
+
+.login-card .todo-input,
+.register-card .todo-input {
+  width: 100%;
+  margin-bottom: 0.5em;
+  font-size: 1em;
+}
+
+.login-card .todo-add-btn,
+.register-card .todo-add-btn {
+  width: 100%;
+  margin-top: 0.5em;
+  font-size: 1.08em;
+}
+
+.login-card .todo-action,
+.register-card .todo-action {
+  display: inline-block;
+  margin-top: 1em;
+  text-align: center;
+}
+
+.error-msg {
+  color: #ef4444;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  padding: 0.7em 1em;
+  margin-bottom: 1em;
+  width: 100%;
+  text-align: center;
+  font-size: 1em;
+}
